@@ -21,12 +21,19 @@ const GET_GREETING = gql`
   }
 `;
 
+const url =
+process.env.NODE_ENV === "development"
+  ? "http://localhost:8000/"
+  
+  : "https://virtuallollyaws.netlify.app/";
+
+
 const WaitingArea = () => {
     const {loading, error, data} = useQuery(GET_GREETING)
     console.log("data from server",data)
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
-    const url = "https://virtuallollyaws.netlify.app/"
+    
     
     return (
         <div className="container">
@@ -36,7 +43,7 @@ const WaitingArea = () => {
             URL : <a href={`${url}${data.listNotes[data.listNotes.length-1].lollyPath}`}
       >{`${url}${data.listNotes[data.listNotes.length-1].lollyPath}`}</a>   
             </p>
-            hello from waiting area
+            
         </div>
     )
 }
