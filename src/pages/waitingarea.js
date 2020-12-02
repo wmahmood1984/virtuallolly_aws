@@ -1,7 +1,7 @@
-import { gql, useQuery, useMutation } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 import React from 'react'
 import { Header } from "../component/Header"
-import Lolly from '../component/Lolly'
+// import Lolly from '../component/Lolly'
 
 
 const GET_GREETING = gql`
@@ -26,7 +26,7 @@ const WaitingArea = () => {
     console.log("data from server",data)
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
-    const url = "abc"
+    const url = "https://virtuallollyaws.netlify.app/"
     
     return (
         <div className="container">
