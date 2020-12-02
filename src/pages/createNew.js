@@ -63,7 +63,15 @@ const Createnew = () => {
         }
         
         )
+        try {
+          const netlifyPostResponse = await fetch("https://api.netlify.com/build_hooks/5fc772db6c3c568ed410f1e1",
+          {method: "post"});
+          const netlifyPostData = await netlifyPostResponse.json();
+          console.log("DAta = ",netlifyPostData);
+      } catch (netError) {
+          console.log(netError)}
         navigate('/waitingarea');
+
       }
 
         
